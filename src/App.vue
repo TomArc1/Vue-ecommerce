@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="bg-[#676767]">
+    <site-header /> 
+    <registro-cliente />
+    <product-detail 
+      :product= this.eldenRing 
+    />
+    <card-container />
+    <my-cart />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SiteHeader from './components/SiteHeader.vue'
+import RegistroCliente from './components/RegistroCliente.vue';
+import CardContainer from './components/CardContainer.vue';
+import ProductDetail from './components/ProductDetail.vue';
+import MyCart from './components/MyCart.vue';
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
+    SiteHeader,
+    RegistroCliente,
+    CardContainer,
+    ProductDetail,
+    MyCart
+  },
+
+  data() {
+    return {
+      eldenRing:  {
+        tipo: 'videojuego',
+        id: '201',
+        nombre: 'Elden Ring',
+        desarrollador: 'From Software',
+        precio: '70',
+        genero: 'rol accion',
+        modosDeJuego: 'Un jugador, multijugador',
+        plataformas: 'Playstation 5, Playstation 4, PC, Xbox One, Xbox Series X/S',
+        img: './imgs/eldenring.webp'
+      },
+    }
   }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
